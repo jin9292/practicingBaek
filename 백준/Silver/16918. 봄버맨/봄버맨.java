@@ -15,9 +15,11 @@ public class Main {
         int R = Integer.parseInt(stringTokenizer.nextToken());
         int C = Integer.parseInt(stringTokenizer.nextToken());
         int N = Integer.parseInt(stringTokenizer.nextToken());
+        //언제 바둑칸을 상하좌우 1개씩 크게 만들어서 indexOutOfBound 예방
         int[][] answer = new int[R + 2][C + 2];
         int time = 0;
 
+        //입력을 받아서 폭탄이 있으면 1 없으면 0을 넣는다.
         for (int i = 0; i < R; i++) {
             String[] split = bufferedReader.readLine().split("");
             for (int j = 0; j < C; j++) {
@@ -40,13 +42,6 @@ public class Main {
                             answer[j][k] += 1;
                     }
                 }
-
-//                for (int j = 1; j < R + 1; j++) {
-//                    for (int k = 1; k < C + 1; k++) {
-//                        System.out.print(answer[j][k]);
-//                    }
-//                    System.out.println();
-//                }
                 continue;
             }
             //1초가 지나가면 폭탄의 시간이 1씩 증가한다
@@ -84,15 +79,9 @@ public class Main {
                     }
                 }
             }
-//
-//            for (int j = 1; j < R + 1; j++) {
-//                for (int k = 1; k < C + 1; k++) {
-//                    System.out.print(answer[j][k]);
-//                }
-//                System.out.println();
-//            }
-//            System.out.println();
         }
+
+        //출력
         for (int i = 1; i < R + 1; i++) {
             for (int j = 1; j < C + 1; j++) {
                 if (answer[i][j] == 0) {
